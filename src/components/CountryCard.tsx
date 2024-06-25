@@ -1,16 +1,17 @@
-import { NationalInfoProps } from "../types/nationalTypes";
+import { AllInfoPlusIsLike } from "../types/nationalTypes";
 
-function CountryCard({ nationalInfo }: { nationalInfo: NationalInfoProps }) {
+export type CountryInfoProps = Pick<AllInfoPlusIsLike, "name" | "flags" | "capital" | "id">;
+
+function CountryCard({ country, handleAddLike }: { country: CountryInfoProps; handleAddLike: (id: string) => void }) {
   return (
-    <li className="border rounded flex flex-col items-center justify-center">
-      <div className="w-[100%] h-[160px] overflow-hidden">
-        <img
-          className="w-[100%] h-[100%] autofill"
-          src={nationalInfo.flags.png}
-        />
-      </div>
-      <h3 className="font-bold">{nationalInfo.name.common}</h3>
-      <p>{nationalInfo.capital}</p>
+    <li className="border rounded ">
+      <button className="w-[100%] flex flex-col items-center justify-center" onClick={() => handleAddLike(country.id)}>
+        <div className="w-[100%] h-[140px] overflow-hidden">
+          <img className="w-[100%] h-[100%] autofill" src={country.flags.png} />
+        </div>
+        <h3 className="font-bold">{country.name.common}</h3>
+        <p>{country.capital}</p>
+      </button>
     </li>
   );
 }

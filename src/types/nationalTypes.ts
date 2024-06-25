@@ -1,4 +1,4 @@
-export type NationalInfosProps = {
+export type CountryAllInfo = {
   name: {
     common: string;
     official: string;
@@ -171,7 +171,9 @@ export type NationalInfosProps = {
   };
 };
 
-export type NationalInfoProps = Pick<
-  NationalInfosProps,
-  "name" | "flags" | "capital"
->;
+export type IsLike = {
+  isLike: boolean;
+  id: string;
+};
+
+export type AllInfoPlusIsLike = CountryAllInfo & IsLike;
