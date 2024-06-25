@@ -144,7 +144,7 @@ export type CountryAllInfo = {
       m: string;
     };
   };
-  flag: "🇼🇫";
+  flag: string;
   maps: {
     googleMaps: string;
     openStreetMaps: string;
